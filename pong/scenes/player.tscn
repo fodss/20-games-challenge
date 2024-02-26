@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://6etvl0j33po7"]
+
+[ext_resource type="Texture2D" uid="uid://byjowvlj4sgge" path="res://assets/paddle.png" id="1_rphku"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_xsuda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6kyt"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_766xk"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fph5"]
+size = Vector2(16, 48)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_xsuda")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.48855)
+texture = ExtResource("1_rphku")
+
+[node name="top" type="Area2D" parent="." groups=["topCollision"]]
+position = Vector2(0, -40)
+
+[node name="CollisionTop" type="CollisionShape2D" parent="top" groups=["topCollision"]]
+shape = SubResource("RectangleShape2D_i6kyt")
+
+[node name="mid" type="Area2D" parent="." groups=["midCollision"]]
+position = Vector2(0, -40)
+
+[node name="CollisionMid" type="CollisionShape2D" parent="mid" groups=["midCollision"]]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_766xk")
+
+[node name="bottom" type="Area2D" parent="." groups=["botCollision"]]
+position = Vector2(0, -40)
+
+[node name="CollisionBot" type="CollisionShape2D" parent="bottom" groups=["botCollision"]]
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_5fph5")

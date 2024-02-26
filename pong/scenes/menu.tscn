@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://d14nl0n8fi8bh"]
+
+[ext_resource type="Script" path="res://script/menu.gd" id="1_2ljwd"]
+[ext_resource type="FontFile" uid="uid://dmesdcblf05pe" path="res://assets/Sixtyfour-Regular.ttf" id="1_2sgr6"]
+[ext_resource type="Script" path="res://script/CheckButton.gd" id="2_tgy8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcqv1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eax2j"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh867"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcegp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22c8u"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_yqp8c"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 35
+Button/fonts/font = ExtResource("1_2sgr6")
+Button/styles/disabled = SubResource("StyleBoxFlat_pcqv1")
+Button/styles/focus = SubResource("StyleBoxFlat_eax2j")
+Button/styles/hover = SubResource("StyleBoxFlat_nh867")
+Button/styles/normal = SubResource("StyleBoxFlat_kcegp")
+Button/styles/pressed = SubResource("StyleBoxFlat_22c8u")
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_2ljwd")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 64.0
+offset_right = 1080.0
+offset_bottom = 288.0
+pivot_offset = Vector2(240, 0)
+theme_override_fonts/font = ExtResource("1_2sgr6")
+theme_override_font_sizes/font_size = 250
+text = "PONG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SinglePlayer" type="Button" parent="."]
+offset_left = 252.0
+offset_top = 384.0
+offset_right = 828.0
+offset_bottom = 448.0
+theme = SubResource("Theme_yqp8c")
+text = "SINGLE-PLAYER"
+
+[node name="MultiPlayer" type="Button" parent="."]
+offset_left = 252.0
+offset_top = 472.0
+offset_right = 828.0
+offset_bottom = 536.0
+theme = SubResource("Theme_yqp8c")
+text = "MULTI-PLAYER"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 348.0
+offset_top = 544.0
+offset_right = 476.0
+offset_bottom = 608.0
+scale = Vector2(3, 3)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_2sgr6")
+button_pressed = true
+text = "SOUND"
+icon_alignment = 1
+script = ExtResource("2_tgy8w")
+
+[connection signal="button_up" from="SinglePlayer" to="." method="_on_single_player_button_up"]
+[connection signal="button_up" from="SinglePlayer" to="SinglePlayer" method="_on_button_up"]
+[connection signal="button_up" from="MultiPlayer" to="." method="_on_multi_player_button_up"]

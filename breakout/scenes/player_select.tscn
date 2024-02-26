@@ -1,0 +1,379 @@
+[gd_scene load_steps=43 format=3 uid="uid://cnrgp3h10jjcw"]
+
+[ext_resource type="Script" path="res://scripts/player_select.gd" id="1_4skon"]
+[ext_resource type="Texture2D" uid="uid://cleiigxx80w34" path="res://assets/0Parts_Mid.png" id="2_4m2o5"]
+[ext_resource type="Texture2D" uid="uid://qeoanlsrkdg4" path="res://assets/0Parts_Left.png" id="3_jaenl"]
+[ext_resource type="Texture2D" uid="uid://sq4d6r6hf0a6" path="res://assets/arrow_enabled.png" id="4_4n87j"]
+[ext_resource type="Texture2D" uid="uid://d32wysamo1xss" path="res://assets/0Parts_Right.png" id="4_jd6gc"]
+[ext_resource type="Texture2D" uid="uid://c1ft3reruij5i" path="res://assets/arrow_pressed.png" id="5_6pxb5"]
+[ext_resource type="Texture2D" uid="uid://5v8c51tqo33u" path="res://assets/arrow_hover.png" id="6_jeh53"]
+[ext_resource type="Texture2D" uid="uid://dbvoahgky5m3" path="res://assets/arrow_disabled.png" id="7_5q738"]
+[ext_resource type="Theme" uid="uid://dl32s66m84vch" path="res://themes/player_select.tres" id="8_rqhtf"]
+[ext_resource type="FontFile" uid="uid://jpwtcisatp0k" path="res://assets/KodeMono-VariableFont_wght.ttf" id="8_viyrx"]
+[ext_resource type="Texture2D" uid="uid://cet5yb38ammwl" path="res://assets/balls.png" id="9_endbu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvfoi"]
+bg_color = Color(0.0509804, 0.168627, 0.270588, 0.501961)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.329412, 0.305882, 0.407843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_m4hjg"]
+Button/styles/disabled = SubResource("StyleBoxFlat_kvfoi")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mcjl"]
+atlas = ExtResource("2_4m2o5")
+region = Rect2(0, 9, 3, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nkk6"]
+atlas = ExtResource("2_4m2o5")
+region = Rect2(0, 18, 3, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5q5l"]
+atlas = ExtResource("2_4m2o5")
+region = Rect2(0, 27, 3, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjsai"]
+atlas = ExtResource("2_4m2o5")
+region = Rect2(0, 36, 3, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rru0c"]
+atlas = ExtResource("2_4m2o5")
+region = Rect2(0, 45, 3, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6c8g8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mcjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nkk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5q5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjsai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rru0c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6ngj"]
+atlas = ExtResource("3_jaenl")
+region = Rect2(0, 9, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00oy8"]
+atlas = ExtResource("3_jaenl")
+region = Rect2(0, 18, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxjt5"]
+atlas = ExtResource("3_jaenl")
+region = Rect2(0, 27, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ktyi"]
+atlas = ExtResource("3_jaenl")
+region = Rect2(0, 36, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjevm"]
+atlas = ExtResource("3_jaenl")
+region = Rect2(0, 45, 6, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lany"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6ngj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00oy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxjt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ktyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjevm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slehp"]
+atlas = ExtResource("4_jd6gc")
+region = Rect2(0, 9, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl26b"]
+atlas = ExtResource("4_jd6gc")
+region = Rect2(0, 18, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imslx"]
+atlas = ExtResource("4_jd6gc")
+region = Rect2(0, 27, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ie8e"]
+atlas = ExtResource("4_jd6gc")
+region = Rect2(0, 36, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0toh7"]
+atlas = ExtResource("4_jd6gc")
+region = Rect2(0, 45, 6, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ja7qe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slehp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl26b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imslx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ie8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0toh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o08w"]
+atlas = ExtResource("9_endbu")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0se5x"]
+atlas = ExtResource("9_endbu")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vu84"]
+atlas = ExtResource("9_endbu")
+region = Rect2(0, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8drbm"]
+atlas = ExtResource("9_endbu")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18ooa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o08w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0se5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vu84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8drbm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_207ih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnw12"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pq11b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqoci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vnj1r"]
+
+[sub_resource type="Theme" id="Theme_p2pex"]
+Button/colors/font_color = Color(1, 0.92549, 0.839216, 1)
+Button/colors/font_disabled_color = Color(1, 0.92549, 0.839216, 0.501961)
+Button/colors/font_hover_color = Color(1, 0.831373, 0.639216, 1)
+Button/colors/font_outline_color = Color(0.329412, 0.305882, 0.407843, 1)
+Button/colors/font_pressed_color = Color(1, 0.666667, 0.368627, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+Button/colors/icon_normal_color = Color(1, 1, 1, 0)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 0)
+Button/constants/outline_size = 6
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("8_viyrx")
+Button/styles/disabled = SubResource("StyleBoxEmpty_207ih")
+Button/styles/focus = SubResource("StyleBoxEmpty_mnw12")
+Button/styles/hover = SubResource("StyleBoxEmpty_pq11b")
+Button/styles/normal = SubResource("StyleBoxEmpty_jqoci")
+Button/styles/pressed = SubResource("StyleBoxEmpty_vnj1r")
+
+[node name="PlayerSelect" type="Node2D"]
+script = ExtResource("1_4skon")
+
+[node name="MainTitleLabel" type="Label" parent="."]
+offset_top = 9.0
+offset_right = 540.0
+offset_bottom = 106.0
+theme = ExtResource("8_rqhtf")
+theme_override_colors/font_shadow_color = Color(0.552941, 0.411765, 0.478431, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 75
+text = "BREAKOUT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_top = 96.0
+offset_right = 540.0
+offset_bottom = 160.0
+theme = ExtResource("8_rqhtf")
+theme_override_font_sizes/font_size = 32
+text = "SELECT YOUR COLORS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaddleLabel" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 144.0
+offset_right = 224.0
+offset_bottom = 208.0
+theme = ExtResource("8_rqhtf")
+theme_override_font_sizes/font_size = 25
+text = "PADDLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="PaddleBGButton" type="Button" parent="PaddleLabel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 128.0
+theme = SubResource("Theme_m4hjg")
+disabled = true
+
+[node name="Sprites" type="Node2D" parent="PaddleLabel"]
+position = Vector2(64, 96)
+scale = Vector2(0.9, 0.9)
+metadata/_edit_group_ = true
+
+[node name="CenterSprite" type="AnimatedSprite2D" parent="PaddleLabel/Sprites"]
+position = Vector2(-5.51343e-07, 0)
+scale = Vector2(17.3333, 1)
+sprite_frames = SubResource("SpriteFrames_6c8g8")
+
+[node name="LeftSprite" type="AnimatedSprite2D" parent="PaddleLabel/Sprites"]
+position = Vector2(-29, 0)
+sprite_frames = SubResource("SpriteFrames_8lany")
+
+[node name="RightSprite" type="AnimatedSprite2D" parent="PaddleLabel/Sprites"]
+position = Vector2(29, 0)
+sprite_frames = SubResource("SpriteFrames_ja7qe")
+
+[node name="PaddleLeftButton" type="TextureButton" parent="PaddleLabel"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 80.0
+offset_right = 16.0
+offset_bottom = 112.0
+texture_normal = ExtResource("4_4n87j")
+texture_pressed = ExtResource("5_6pxb5")
+texture_hover = ExtResource("6_jeh53")
+texture_disabled = ExtResource("7_5q738")
+
+[node name="PaddleRightButton" type="TextureButton" parent="PaddleLabel"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 80.0
+offset_right = 144.0
+offset_bottom = 112.0
+texture_normal = ExtResource("4_4n87j")
+texture_pressed = ExtResource("5_6pxb5")
+texture_hover = ExtResource("6_jeh53")
+texture_disabled = ExtResource("7_5q738")
+flip_h = true
+
+[node name="BallLabel" type="Label" parent="."]
+offset_left = 316.0
+offset_top = 144.0
+offset_right = 444.0
+offset_bottom = 208.0
+pivot_offset = Vector2(128, 0)
+theme = ExtResource("8_rqhtf")
+theme_override_font_sizes/font_size = 25
+text = "BALL"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="BallBGButton" type="Button" parent="BallLabel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 128.0
+pivot_offset = Vector2(32, 32)
+theme = SubResource("Theme_m4hjg")
+disabled = true
+
+[node name="BallSprite" type="AnimatedSprite2D" parent="BallLabel"]
+position = Vector2(64, 96)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_18ooa")
+autoplay = "default"
+
+[node name="BallLeftButton" type="TextureButton" parent="BallLabel"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 80.0
+offset_right = 16.0
+offset_bottom = 112.0
+texture_normal = ExtResource("4_4n87j")
+texture_pressed = ExtResource("5_6pxb5")
+texture_hover = ExtResource("6_jeh53")
+texture_disabled = ExtResource("7_5q738")
+
+[node name="BallRightButton" type="TextureButton" parent="BallLabel"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 80.0
+offset_right = 144.0
+offset_bottom = 112.0
+texture_normal = ExtResource("4_4n87j")
+texture_pressed = ExtResource("5_6pxb5")
+texture_hover = ExtResource("6_jeh53")
+texture_disabled = ExtResource("7_5q738")
+flip_h = true
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 206.0
+offset_top = 296.0
+offset_right = 334.0
+offset_bottom = 352.0
+pivot_offset = Vector2(64, 28)
+theme = SubResource("Theme_p2pex")
+text = "PLAY"
+
+[connection signal="button_up" from="PaddleLabel/PaddleLeftButton" to="." method="_on_paddle_left_button_button_up"]
+[connection signal="button_up" from="PaddleLabel/PaddleRightButton" to="." method="_on_paddle_right_button_button_up"]
+[connection signal="button_up" from="BallLabel/BallLeftButton" to="." method="_on_ball_left_button_button_up"]
+[connection signal="button_up" from="BallLabel/BallRightButton" to="." method="_on_ball_right_button_button_up"]
+[connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]

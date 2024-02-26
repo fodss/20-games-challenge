@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxx2kyfe8lojf"]
+
+[ext_resource type="Script" path="res://script/ball.gd" id="1_qwgxt"]
+[ext_resource type="Texture2D" uid="uid://bn6n4c6p2brpc" path="res://assets/ball64px.png" id="1_s2xn7"]
+[ext_resource type="AudioStream" uid="uid://oh5swojujqhr" path="res://assets/sound2.wav" id="3_lx6vv"]
+[ext_resource type="AudioStream" uid="uid://dccrj3mgby1wj" path="res://assets/sound3.wav" id="3_og2v6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0l40"]
+radius = 7.0
+
+[node name="Ball" type="Area2D" groups=["ball"]]
+script = ExtResource("1_qwgxt")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("1_s2xn7")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l0l40")
+
+[node name="paddleHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lx6vv")
+
+[node name="borderHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_og2v6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

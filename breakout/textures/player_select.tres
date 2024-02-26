@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://5qupea5sx2ei"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k8d4h"]
+load_path = "res://.godot/imported/arrows.png-4802d5ef5af2af6fa5f490e680067993.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybn82"]
+atlas = SubResource("CompressedTexture2D_k8d4h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe4hl"]
+atlas = SubResource("CompressedTexture2D_k8d4h")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybn82")
+}],
+"loop": false,
+"name": &"active",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe4hl")
+}],
+"loop": false,
+"name": &"disabled",
+"speed": 5.0
+}]

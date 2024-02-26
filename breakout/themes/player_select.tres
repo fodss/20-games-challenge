@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dl32s66m84vch"]
+
+[ext_resource type="FontFile" uid="uid://jpwtcisatp0k" path="res://assets/KodeMono-VariableFont_wght.ttf" id="1_wn8ya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqjhv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrdw2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53h5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1git"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5t1oi"]
+
+[resource]
+Button/colors/font_color = Color(1, 0.92549, 0.839216, 1)
+Button/colors/font_hover_color = Color(1, 0.831373, 0.639216, 1)
+Button/colors/font_outline_color = Color(0.329412, 0.305882, 0.407843, 1)
+Button/colors/font_pressed_color = Color(1, 0.666667, 0.368627, 1)
+Button/constants/outline_size = 1
+Button/fonts/font = ExtResource("1_wn8ya")
+Button/styles/disabled = SubResource("StyleBoxEmpty_bqjhv")
+Button/styles/focus = SubResource("StyleBoxEmpty_lrdw2")
+Button/styles/hover = SubResource("StyleBoxEmpty_53h5o")
+Button/styles/normal = SubResource("StyleBoxEmpty_w1git")
+Button/styles/pressed = SubResource("StyleBoxEmpty_5t1oi")
+Label/colors/font_color = Color(1, 0.92549, 0.839216, 1)
+Label/colors/font_outline_color = Color(0.329412, 0.305882, 0.407843, 1)
+Label/constants/outline_size = 6
+Label/font_sizes/font_size = 42
+Label/fonts/font = ExtResource("1_wn8ya")

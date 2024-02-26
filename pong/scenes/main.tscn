@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://01wwfkynwuof"]
+
+[ext_resource type="Texture2D" uid="uid://cy0f2erho4wru" path="res://assets/walls.png" id="1_vd6a3"]
+[ext_resource type="PackedScene" uid="uid://6etvl0j33po7" path="res://scenes/player.tscn" id="2_8vake"]
+[ext_resource type="PackedScene" uid="uid://cun4fipy27vd6" path="res://scenes/enemy.tscn" id="3_1pmfy"]
+[ext_resource type="PackedScene" uid="uid://bxx2kyfe8lojf" path="res://scenes/ball.tscn" id="4_p3cs2"]
+[ext_resource type="FontFile" uid="uid://dmesdcblf05pe" path="res://assets/Sixtyfour-Regular.ttf" id="5_0d2em"]
+[ext_resource type="Script" path="res://script/ballSpawner.gd" id="5_e5hl2"]
+[ext_resource type="Script" path="res://script/GoalText.gd" id="6_jxx5d"]
+[ext_resource type="Script" path="res://script/LeftScore.gd" id="6_wgou6"]
+[ext_resource type="AudioStream" uid="uid://n1i1sakn1x1g" path="res://assets/bad.wav" id="7_hanxf"]
+[ext_resource type="Script" path="res://script/RightScore.gd" id="7_x1v5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk7ut"]
+size = Vector2(1080, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2uof"]
+size = Vector2(8, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvluq"]
+size = Vector2(8, 640)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsscj"]
+font = ExtResource("5_0d2em")
+font_size = 56
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_8vake")]
+position = Vector2(16, 360)
+
+[node name="Enemy" parent="." instance=ExtResource("3_1pmfy")]
+position = Vector2(1064, 360)
+
+[node name="ballSpawner" type="Node2D" parent="."]
+position = Vector2(540, 360)
+script = ExtResource("5_e5hl2")
+ball_tscn = ExtResource("4_p3cs2")
+
+[node name="Timer" type="Timer" parent="ballSpawner"]
+wait_time = 4.0
+one_shot = true
+
+[node name="GoalText" type="Label" parent="ballSpawner"]
+visible = false
+offset_left = -125.0
+offset_top = -24.0
+offset_right = 125.0
+offset_bottom = 27.0
+pivot_offset = Vector2(125, 25)
+theme_override_fonts/font = ExtResource("5_0d2em")
+theme_override_font_sizes/font_size = 50
+text = "GOAL!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_jxx5d")
+metadata/_edit_lock_ = true
+
+[node name="goalSound" type="AudioStreamPlayer2D" parent="ballSpawner"]
+stream = ExtResource("7_hanxf")
+
+[node name="borderTop" type="Area2D" parent="." groups=["borders"]]
+position = Vector2(540, 72)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="borderTop"]
+scale = Vector2(0.864, 1)
+texture = ExtResource("1_vd6a3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borderTop"]
+shape = SubResource("RectangleShape2D_vk7ut")
+
+[node name="borderBot" type="Area2D" parent="." groups=["borders"]]
+position = Vector2(540, 712)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="borderBot"]
+scale = Vector2(0.864, 1)
+texture = ExtResource("1_vd6a3")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borderBot"]
+shape = SubResource("RectangleShape2D_vk7ut")
+
+[node name="LeftGoal" type="Area2D" parent="." groups=["leftGoal"]]
+position = Vector2(0, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal"]
+position = Vector2(-4, 312)
+shape = SubResource("RectangleShape2D_y2uof")
+
+[node name="RightGoal" type="Area2D" parent="." groups=["rightGoal"]]
+position = Vector2(1080, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal"]
+position = Vector2(4, 312)
+shape = SubResource("RectangleShape2D_hvluq")
+
+[node name="LeftScore" type="Label" parent="."]
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "0"
+label_settings = SubResource("LabelSettings_bsscj")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_wgou6")
+metadata/_edit_lock_ = true
+
+[node name="RightScore" type="Label" parent="."]
+offset_left = 1024.0
+offset_top = 8.0
+offset_right = 1080.0
+offset_bottom = 64.0
+text = "0"
+label_settings = SubResource("LabelSettings_bsscj")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_x1v5x")
+metadata/_edit_lock_ = true
+
+[node name="middleLine" type="Sprite2D" parent="."]
+position = Vector2(540, 391.448)
+rotation = 1.5708
+scale = Vector2(0.515223, 0.1)
+texture = ExtResource("1_vd6a3")
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="ballSpawner/Timer" to="ballSpawner" method="spawn_ball"]
+[connection signal="area_entered" from="LeftGoal" to="ballSpawner" method="_on_left_goal_area_entered"]
+[connection signal="area_entered" from="RightGoal" to="ballSpawner" method="_on_right_goal_area_entered"]
